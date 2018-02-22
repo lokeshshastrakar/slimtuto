@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 90px auto 350px;
+}
+
+.dash{
+    grid-column: span 3;
+    grid-row: span 2;
+    background-color: pink;
+}
+
+
+.nav{
+    grid-column: span 3;
+    /*background-color: purple;*/
+    border:2px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    font-family: Roboto;
+}
+
+.nav-grp{
+    display: flex;
+    justify-content: space-around;
+    font-family: Roboto;
+}
+
+
+.nav-items{
+    list-style: none;
+    height: 50px;
+    border:1px solid black;
+    align-self: center;
+    line-height: 50px;
+    margin: 20px;
+    padding: 0 20px;
+    border-radius: 3px;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+
+    color:black;
+}
+
+.form{
+    grid-column: 2;
+}
+
+.form-field{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 10px;
+}
+
+label,input{
+    margin:10px;
+    display: block;
+    font-family: Roboto;
+    color: black;
+}
+
+label{
+    font-weight: bold;
+}
+
+input{
+    font-weight: normal;
+    margin: 1px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.haserror{
+    border:1px solid red;
+}
+
+.help-message{
+    color:red;
+    font-family: Roboto;
+    font-weight: thin;
+    font-size: 12px;
+}
+
+.hide{
+    display: none;
+}
