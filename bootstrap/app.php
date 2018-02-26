@@ -4,6 +4,8 @@ session_start();
 // die(__DIR__ . '/../vendor/autoload.php');
 require __DIR__ . '/../vendor/autoload.php';
 
+use Respect\Validation\Validator as v;
+
 $app = new \Slim\App(
 [
   'settings' => [
@@ -59,11 +61,17 @@ $container['AuthController'] = function ($container) {
     return new \App\Controllers\Auth\AuthController($container);
 };
 
+$container['csrf'] = function ($container) {
+    return new Slim\Csrf\Guard;
+};
 
 
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
 $app->add(new \App\Middleware\oldInputMiddleware($container));
+$app->add(new \App\Middleware\CsrfViewMiddleware($container));
+$app->add($container->get('csrf'));
 
+v::with('App\\Validation\\Rules\\');
 require __DIR__ . '/../app/routes.php';
 
 
